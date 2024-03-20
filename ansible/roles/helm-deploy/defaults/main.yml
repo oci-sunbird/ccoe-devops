@@ -38,3 +38,5 @@ keycloak:
   keycloak_logo_url: https://svgshare.com/i/hCs.svg
   admin_api_secret: "{{admin_api_secret}}"
 #############################################################################
+
+vault_namespace: vault
