@@ -41,10 +41,10 @@
         site.key: "{{ ssl_site_key | b64encode }}"
       EOF
 
-- name: Installing reloader for configmaps reload
-  shell: helm upgrade --install --atomic reloader "{{ playbook_dir }}"/../helm_charts/reloader --namespace "{{ item }}" -f "{{ helm_file.path }}"
-  with_items:
-    - "{{ bootstrap_namespace.split(',') }}"
+# - name: Installing reloader for configmaps reload
+#   shell: helm upgrade --install --atomic reloader "{{ playbook_dir }}"/../helm_charts/reloader --namespace "{{ item }}" -f "{{ helm_file.path }}"
+#   with_items:
+#     - "{{ bootstrap_namespace.split(',') }}"
 
 - name: tempating variables
   template:
