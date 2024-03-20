@@ -20,4 +20,4 @@
 
 *.DS_Store
 
-**/values.yaml
+# **/values.yaml
