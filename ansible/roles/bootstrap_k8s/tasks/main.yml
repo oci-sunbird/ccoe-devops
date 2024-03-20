@@ -79,23 +79,23 @@
 - name: update repo
   shell: helm repo update
 
-# - name: helm install longhorn
-#   shell: helm upgrade --install --atomic --timeout {{helm_install_timeout | d("10m")}} longhorn longhorn/longhorn -n longhorn-system  --version {{longhorn_version}} --values /tmp/longhorn.yaml --wait
+- name: helm install longhorn
+  shell: helm upgrade --install --atomic --timeout {{helm_install_timeout | d("10m")}} longhorn longhorn/longhorn -n longhorn-system  --version {{longhorn_version}} --values /tmp/longhorn.yaml --wait
 
-# - name: helm install cloudnative_pg
-#   shell: helm upgrade --install --atomic --timeout {{helm_install_timeout | d("10m")}} cnpg cnpg/cloudnative-pg --namespace cnpg-system --create-namespace  --wait
+- name: helm install cloudnative_pg
+  shell: helm upgrade --install --atomic --timeout {{helm_install_timeout | d("10m")}} cnpg cnpg/cloudnative-pg --namespace cnpg-system --create-namespace  --wait
 
-# - name: helm install prometheus
-#   shell: helm upgrade --install --atomic --timeout {{helm_install_timeout | d("10m")}} prometheus-community prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace  --values /tmp/prometheus.yaml --wait
+- name: helm install prometheus
+  shell: helm upgrade --install --atomic --timeout {{helm_install_timeout | d("10m")}} prometheus-community prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace  --values /tmp/prometheus.yaml --wait
 
-# - name: Define alerts
-#   shell: kubectl apply -f /tmp/prom_rules.yaml
+- name: Define alerts
+  shell: kubectl apply -f /tmp/prom_rules.yaml
 
-# - name: Sample Grafana Dashboard
-#   shell: kubectl apply -f /tmp/grafana_dashboard.yaml
+- name: Sample Grafana Dashboard
+  shell: kubectl apply -f /tmp/grafana_dashboard.yaml
 
-# - name: Create Postgres Cluster
-#   shell: kubectl apply -f /tmp/postgres.yaml -n cnpg
+- name: Create Postgres Cluster
+  shell: kubectl apply -f /tmp/postgres.yaml -n cnpg
 
 - name: helm install vault
   shell: helm upgrade --install --atomic --timeout {{helm_install_timeout | d("10m")}} {{vault_namespace}} hashicorp/vault -n vault --values /tmp/vault.yaml --wait
